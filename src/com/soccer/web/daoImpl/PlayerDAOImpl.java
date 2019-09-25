@@ -25,7 +25,7 @@ public class PlayerDAOImpl implements PlayerDAO{
 			String sql = "SELECT DISTINCT POSITION position \n" +
 								"FROM PLAYER";
 			ResultSet rs = DatabaseFactory
-					.createDatabase(Constant.VENDOR)
+					.createDatabase(Constant.VANDOR)
 					.getConnection()
 					.prepareStatement(sql)
 					.executeQuery();

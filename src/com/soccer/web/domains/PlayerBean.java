@@ -6,8 +6,10 @@ import lombok.Data;
 
 @Data
 public class PlayerBean implements Serializable {
-      private String playerId, teamId, playerName, ePlayerName,
+      private String playerId, //id
+              teamId, playerName, ePlayerName,
       				nickName, joinYYYY , position, backNo, nation, birthDate,
-      				solar, height, weight ;				
+      				solar,//pw
+      				height, weight ;				
       				
 }

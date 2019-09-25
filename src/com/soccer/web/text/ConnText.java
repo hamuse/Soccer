@@ -7,6 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.soccer.web.enums.DBDriver;
+import com.soccer.web.enums.DBUrl;
 import com.soccer.web.pool.Constant;
 
 public class ConnText {
@@ -16,8 +18,8 @@ public class ConnText {
 		ResultSet rs =null;
 	
 		try {
-			Class.forName(Constant.ORACLE_DRIVER); 
-			conn = DriverManager.getConnection(Constant.ORACLE_URL,Constant.USERNAME,Constant.PASSWORD);
+			Class.forName(DBDriver.ORACLE_DRIVER.toString()); 
+			conn = DriverManager.getConnection(DBUrl.ORACLE_URL.toString(),Constant.USERNAME,Constant.PASSWORD);
 			
 			if(conn != null) {
 				System.out.println("연결 성공");

@@ -1,5 +1,10 @@
 package com.soccer.web.command;
 
-public class Receiver {
+import javax.servlet.http.HttpServletRequest;
 
+public class Receiver {
+	 public static Command cmd = new Command();		 
+	public void init(HttpServletRequest request) {
+				cmd =Commander.direct(request);
+			 }
 }

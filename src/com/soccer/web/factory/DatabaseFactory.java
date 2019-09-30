@@ -6,6 +6,7 @@ import com.soccer.web.pool.Constant;
 public  class DatabaseFactory {
 	
 	public static  Database createDatabase (String vendor) {
+		System.out.println("벤더"+vendor);
 		Database db = null;
 		switch (DB.valueOf(vendor)) {
 		case ORACLE : db = new Oracle();		break;

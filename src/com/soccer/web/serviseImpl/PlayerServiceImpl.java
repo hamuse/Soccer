@@ -9,13 +9,22 @@ import com.soccer.web.domains.PlayerBean;
 import com.soccer.web.sevices.PlayerService;
 
 public class PlayerServiceImpl implements PlayerService {
-    private static PlayerServiceImpl instance = new PlayerServiceImpl();
+    private static PlayerServiceImpl instance = new PlayerServiceImpl(); // 싱글톤 
     
     
 	public static PlayerServiceImpl getInstance() {
 		return instance;
 	}
 	private PlayerServiceImpl() {	}
+	@Override
+	public PlayerBean login(PlayerBean param) {
+		System.out.println("★★★ 6. PlayerServiceImpl 의 login() 으로 이동 ★★★ ");
+		System.out.println(String.format("param 값 출력 : %s, %s ",
+				param.getPlayerId(), 
+				param.getSolar()));
+	
+		return PlayerDAOImpl.getInstance().seletByPlayerIdSolar(param);
+	}
 	//1번
 	@Override
 	public List<String> frindPositions() {

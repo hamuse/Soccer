@@ -4,9 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 
 import com.soccer.web.dao.PlayerDAO;
 import com.soccer.web.domains.PlayerBean;
@@ -48,6 +51,60 @@ public class PlayerDAOImpl implements PlayerDAO{
 	@Override
 	public List<PlayerBean> selectTeamIdHeightName(PlayerBean param) {
 		return null;
+	}
+	@Override
+	public PlayerBean seletByPlayerIdSolar(PlayerBean param) {
+		PlayerBean player = null;
+		String sql = "SELECT *\r\n" + 
+				"FROM PLAYER\r\n" + 
+				"WHERE PLAYER_ID LIKE ?\r\n" + 
+				"AND SOLAR LIKE ?";
+		try {
+			PreparedStatement stmt =DatabaseFactory
+					.createDatabase(Constant.VANDOR).getConnection().prepareStatement(sql);
+			stmt.setString(1, param.getPlayerId());
+			stmt.setString(2, param.getSolar());
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				player = new PlayerBean();
+				player.setBackNo(rs.getString("BACK_NO"));
+				player.setBirthDate(rs.getString("BIRTH_DATE"));
+				player.setEPlayerName(rs.getString("E_PLAYER_NAME"));
+				player.setHeight(rs.getString("HEIGHT"));
+				player.setJoinYYYY(rs.getString("JOIN_YYYY"));
+				player.setNation(rs.getString("NATION"));
+				player.setNickName(rs.getString("NICKNAME"));
+				player.setPlayerId(rs.getString("PLAYER_ID"));
+				player.setPlayerName(rs.getString("PLAYER_NAME"));
+				player.setPosition(rs.getString("POSITION"));
+				player.setSolar(rs.getString("SOLAR"));
+				player.setTeamId(rs.getString("TEAM_ID"));
+				player.setWeight(rs.getString("WEIGHT"));
+				}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+//		System.out.println("9.반환된 결과값:" +player.toString());
+     return player;
+	}
+	@Override
+	public List<PlayerBean> selectByMany(PlayerBean param) {
+		List<PlayerBean> pb = new ArrayList<>();
+		String sql = "";
+		try {
+			PreparedStatement pst = DatabaseFactory
+					.createDatabase(Constant.VANDOR)
+					.getConnection().prepareStatement(sql);
+			pst.setString(1, param.getPlayerId());
+			ResultSet rs = pst.executeQuery();
+			while(rs.next()) {
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return pb;
 	}
 
 

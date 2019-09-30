@@ -1,17 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>포지션 종류</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-</head>
+<jsp:include page="../common/head.jsp"/>
 <body>
 <h2><a  href="#" id="position">2.포지션 종류 보기</a></h2>
 <!-- 4. team id로 팀 아이디로 해당 팀의 포지션별 선수 검색기능 예) 수원팀(id: k02)-->
 <h2>4. 팀 아이디와 포지션 입력하면 해당 선수 정보 출력</h2>
-<form id="btn4"  action="<%=request.getContextPath()%>/player.do">
+<form id="btn4"  action="${ctx}/player.do">
 	팀아이디<input type="text"  name="teamId"/><br/>
 	포지션<input type="text" name="position"/><br/>
 	<input type="hidden"  name="action" value="btn4"/>
@@ -28,6 +22,7 @@
 	<input type="submit"  value="'전송"/><br />
 	
 </form>
+<jsp:include page="../common/foot.jsp"/>
 <script>
 $('#position').click(function(){
 	alert('버튼클릭');
@@ -40,5 +35,3 @@ $('#btn5').submit(function(){
 	alert('btn5 버튼');
 });
 </script>
-</body>
-</html>

@@ -12,7 +12,13 @@ public class Command implements Order {
     protected String action, domain, page, view;
 	@Override
 	public void execute() {
-		this.view = String.format(Constant.PATH,page);
+		System.out.println("★★★  4. Command 들어옴 ★★★ ");
+		System.out.println(String.format("request 값 출력 : %s, %s, %s, %s ",
+				request.getParameter("playerId"), 
+				request.getParameter("solar"),
+				request.getParameter("action"),
+				request.getParameter("page")));
+		this.view = String.format(Constant.DOUBLE_PATH,"facade",page);
 	}
 
 }

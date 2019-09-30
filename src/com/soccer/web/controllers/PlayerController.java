@@ -1,7 +1,4 @@
 package com.soccer.web.controllers;
-
-
-
 import java.io.IOException;
 
 import javax.security.auth.message.callback.PrivateKeyCallback.Request;
@@ -25,32 +22,37 @@ public class PlayerController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	       
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Receiver r = new Receiver();
-		r.init(request);
-		Commander c = new Commander();
-		PlayerBean player = null;
-		switch (request.getParameter("action")) {
-		case "move":
-			
-				break;
-		case "find2":
-				request.setAttribute("positions", PlayerServiceImpl.getInstance().frindPositions()); //리퀘스트 받은 정보를  넘겨주는것
-			break;
-		case "btn4":
-			break;
-		case "btn5":
-			player = new PlayerBean();
-			player.setTeamId(request.getParameter("teamId"));
-			player.setHeight(request.getParameter("height"));
-			player.setPlayerName(request.getParameter("playerName"));
-			request.setAttribute("player",PlayerServiceImpl.getInstance().findbyTeamIdHeightName(player) );
-			break;
-				default:
-			break;
-		}
-//		String page = request.getParameter("page");
-//		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/"+page+".jsp");
-//		rd.forward(request, response);
+		System.out.println("★★★ 1. 서블릿 들어옴 ★★★ ");
+		System.out.println(String.format("request 값 출력 : %s, %s, %s, %s ",
+				request.getParameter("playerId"), 
+				request.getParameter("solar"),
+				request.getParameter("action"),
+				request.getParameter("page")));
+//		Commander c = new Commander();
+//		PlayerBean player = null;
+//		switch (request.getParameter("action")) {
+//		case "move":
+//			
+//				break;
+//		case "find2":
+//				request.setAttribute("positions", PlayerServiceImpl.getInstance().frindPositions()); //리퀘스트 받은 정보를  넘겨주는것
+//			break;
+//		case "btn4":
+//			break;
+//		case "btn5":
+//			player = new PlayerBean();
+//			player.setTeamId(request.getParameter("teamId"));
+//			player.setHeight(request.getParameter("height"));
+//			player.setPlayerName(request.getParameter("playerName"));
+//			request.setAttribute("player",PlayerServiceImpl.getInstance().findbyTeamIdHeightName(player) );
+//			break;
+//				default:
+//			break;
+//		}
+////		String page = request.getParameter("page");
+////		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/"+page+".jsp");
+////		rd.forward(request, response);
+		Receiver.init(request);
 		Sender.forward(request, response);
 			}
 

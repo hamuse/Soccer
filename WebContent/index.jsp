@@ -2,5 +2,6 @@
     pageEncoding="UTF-8"%>
  <img src="<%=request.getContextPath()%>/resources/img/cat1.gif" alt="" />
 <script>
-<%--  location.assign('<%=request.getContextPath()%>/facade.do') --%>
+ location.assign('<%=request.getContextPath()%>/facade.do') 
 </script>
+<!--  a-->

@@ -40,7 +40,28 @@ public class PlayerDAOImpl implements PlayerDAO{
 		}
 		return positions;
 	}
-
+	
+	@Override
+	public boolean insertPlayer(PlayerBean param) {
+		boolean flag = false;
+		try {
+			String sql = "INSERT INTO PLAYER(PLAYER_ID, SOLAR, TEAM_ID,PLAYER_NAME)\n" + 
+					"VALUES(?,?,'K03','김광진')\n";
+			PreparedStatement stmt =DatabaseFactory
+					.createDatabase(Constant.VANDOR).getConnection().prepareStatement(sql);
+			stmt.setString(1, param.getPlayerId());
+			stmt.setString(2, param.getSolar());
+			int rs = stmt.executeUpdate();
+			flag =(rs ==1);
+	
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return flag;
+		
+	}
+	
 	@Override
 	public List<PlayerBean> selectTeamIdPosition(PlayerBean param) {
 		// TODO Auto-generated method stub
@@ -106,6 +127,7 @@ public class PlayerDAOImpl implements PlayerDAO{
 		}
 		return pb;
 	}
+
 
 
 }

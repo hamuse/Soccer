@@ -1,4 +1,5 @@
 package com.soccer.web.controllers;
+import com.soccer.web.enums.Action;
 import java.io.IOException;
 
 import javax.security.auth.message.callback.PrivateKeyCallback.Request;
@@ -22,7 +23,7 @@ public class PlayerController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	       
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("★★★ 1. 서블릿 들어옴 ★★★ ");
+		System.out.println("★★★player 1. 서블릿 들어옴 ★★★ ");
 		System.out.println(String.format("request 값 출력 : %s, %s, %s, %s ",
 				request.getParameter("playerId"), 
 				request.getParameter("solar"),
@@ -53,6 +54,13 @@ public class PlayerController extends HttpServlet {
 ////		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/"+page+".jsp");
 ////		rd.forward(request, response);
 		Receiver.init(request);
+		switch (Action.valueOf(request.getParameter("action").toUpperCase())) {
+		case CREATE  : request.setAttribute("page", "login");
+			break;
+
+		default:
+			break;
+		}
 		Sender.forward(request, response);
 			}
 

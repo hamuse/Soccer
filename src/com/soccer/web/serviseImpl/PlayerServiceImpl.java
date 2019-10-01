@@ -16,6 +16,13 @@ public class PlayerServiceImpl implements PlayerService {
 		return instance;
 	}
 	private PlayerServiceImpl() {	}
+	
+	@Override
+	public boolean join(PlayerBean param) {
+		
+		return PlayerDAOImpl.getInstance().insertPlayer(param);
+	}
+	
 	@Override
 	public PlayerBean login(PlayerBean param) {
 		System.out.println("★★★ 6. PlayerServiceImpl 의 login() 으로 이동 ★★★ ");

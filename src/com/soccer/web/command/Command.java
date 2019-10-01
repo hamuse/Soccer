@@ -18,7 +18,7 @@ public class Command implements Order {
 				request.getParameter("solar"),
 				request.getParameter("action"),
 				request.getParameter("page")));
-		this.view = String.format(Constant.DOUBLE_PATH,"facade",page);
+		this.view = String.format(Constant.DOUBLE_PATH,"facade","main");
 	}
 
 }

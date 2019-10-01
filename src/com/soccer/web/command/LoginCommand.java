@@ -14,11 +14,12 @@ public class LoginCommand extends Command{
 				request.getParameter("solar"),
 				request.getParameter("action"),
 				request.getParameter("page")));
-		
+				
  	  setRequest(request);
 	  setDomain(request.getServletPath().substring(1,request.getServletPath().indexOf(".")));
 	  setPage(request.getParameter("page"));
 	  setAction(request.getParameter("action"));
+	  setView(request.getParameter("main"));
 	  execute();
   }
   @Override
@@ -36,7 +37,18 @@ public class LoginCommand extends Command{
 //	 }else{
 //		 setPage("index");
 //	 }
-	 setPage((pb!=null)? request.getParameter("page"):"login");
+//	 if(pb.getPlayerId().equals(request.getParameter(playerId)) && pb.getSolar().equals(request.getParameter(solar)) ) {
+//		 setPage(request.getParameter("page"));
+//	 }else {
+//		 setPage("index");
+//	 }
+	
+//	 setPage((pb!=null)? request.getParameter("page"):"login");
+	 
+  setPage((pb.getPlayerId().equals(request.getParameter(playerId)) && pb.getSolar()
+		  .equals(request.getParameter(solar))?"playerMain":request.getParameter("home")));
+
+  //request.getParameter("page")
 	  super.execute();
 
 	 }

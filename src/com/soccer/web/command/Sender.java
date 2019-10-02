@@ -14,6 +14,7 @@ public class Sender {
     		  
     		  System.out.println("도착지 ::"+ Receiver.cmd.getView());
     		 String page = request.getParameter("page");
+    		 
 			request.getRequestDispatcher(Receiver.cmd.getView()).forward(request,response); // 보내야하는것 .
 
 		} catch (Exception e) {

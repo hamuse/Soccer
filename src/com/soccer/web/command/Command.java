@@ -13,11 +13,12 @@ public class Command implements Order {
 	@Override
 	public void execute() {
 		System.out.println("★★★  4. Command 들어옴 ★★★ ");
-		System.out.println(String.format("request 값 출력 : %s, %s, %s, %s ",
+		System.out.println(String.format("request 값 출력 : %s,%s, %s, %s, %s ",
 				request.getParameter("playerId"), 
 				request.getParameter("solar"),
 				request.getParameter("action"),
-				request.getParameter("page")));
+				request.getParameter("page"),
+				request.getParameter("domain")));
 		this.view = String.format(Constant.DOUBLE_PATH,"facade","main");
 	}
 

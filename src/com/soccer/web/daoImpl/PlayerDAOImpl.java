@@ -33,6 +33,7 @@ public class PlayerDAOImpl implements PlayerDAO{
 					.prepareStatement(sql)
 					.executeQuery();
 			while(rs.next()) {
+				System.out.println("position"+rs.getString("position"));
 				positions.add(rs.getString("position"));
 			}
 		} catch (Exception e) {

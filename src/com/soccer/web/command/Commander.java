@@ -18,7 +18,7 @@ public class Commander {
 		switch (Action.valueOf(request.getParameter("action").toUpperCase())) {
 		case CREATE :  cd = new CreateCommand(request);
 			 break;
-		case SEARCH :
+		case SEARCH : cd = new SearchCommand(request);
 			break;
 		case UPDATE :
 			break;
@@ -26,7 +26,7 @@ public class Commander {
 			break;
 		case MOVE :  cd = new MoveCommand(request);
 		break;
-		case LOGIN :
+		case LOGIN : cd = new LoginCommand(request);
 				break;
 		}
 		return cd;

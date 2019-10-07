@@ -68,7 +68,7 @@ public class LoginCommand extends Command{
 	 if(pb != null) {
     this.view = String.format(Constant.DOUBLE_PATH, "player","main");
  }else {
-     this.view = String.format(Constant.DOUBLE_PATH, "player","main");
+     this.view = String.format(Constant.DOUBLE_PATH, "facade","main");
  }
 //	 request.setAttribute("pagename", request.getParameter("page"));
 //	  super.execute();

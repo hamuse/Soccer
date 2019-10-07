@@ -19,7 +19,10 @@ public class Command implements Order {
 				request.getParameter("action"),
 				request.getParameter("page"),
 				request.getParameter("domain")));
-		this.view = String.format(Constant.DOUBLE_PATH,"facade","main");
+		 
+			this.view = String.format(Constant.DOUBLE_PATH, "facade" ,"main");
+	
+			
+		}
 	}
 
-}

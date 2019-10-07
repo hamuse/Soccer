@@ -20,8 +20,9 @@ public class SearchCommand extends Command{
 	public void execute() {
 //		 request.setAttribute("position", PlayerServiceImpl.getInstance().frindPositions());
 		request.setAttribute("position", PlayerServiceImpl.getInstance().frindPositions());
-//		 request.setAttribute("pagename", request.getParameter("page"));	
-		 this.view = String.format(Constant.DOUBLE_PATH,"player","2_positions_a");
+		request.setAttribute("page", request.getParameter("page"));	
+		this.view = String.format(Constant.DOUBLE_PATH,"player","main");
+		
 //		super.execute();
 	}
 }

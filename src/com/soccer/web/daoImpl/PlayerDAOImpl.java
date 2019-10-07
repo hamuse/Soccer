@@ -46,7 +46,8 @@ public class PlayerDAOImpl implements PlayerDAO{
 	public boolean insertPlayer(PlayerBean param) {
 		boolean flag = false;
 		try {
-			String sql = "INSERT INTO PLAYER(PLAYER_ID, SOLAR, TEAM_ID,PLAYER_NAME)\n" + 
+			String sql = "INSERT INTO PLAYER(PLAYER_ID, SOLAR, TEAM_"
+					+ "ID,PLAYER_NAME)\n" + 
 					"VALUES(?,?,'K03','김광진')\n";
 			PreparedStatement stmt =DatabaseFactory
 					.createDatabase(Constant.VANDOR).getConnection().prepareStatement(sql);
